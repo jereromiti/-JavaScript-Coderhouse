@@ -21,7 +21,7 @@ function calcularSalario() {
     let impEntero = parseFloat(prompt("Escribe el porcentaje total de impuestos"))
     //
     
-    if((valorHora !="") && (horasTrabajadas !="") && (diasQuincena !="") && (impEntero !="")){
+    if(!isNaN(valorHora) && !isNaN(horasTrabajadas) && !isNaN(diasQuincena) && !isNaN(impEntero)){
         let impDecimal = impuestos(impEntero)
         let resultadoInicial = multiplica(multiplica(valorHora, horasTrabajadas), diasQuincena);
         let descuentos = descuento(resultadoInicial, impDecimal);
