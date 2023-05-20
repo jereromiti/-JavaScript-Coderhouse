@@ -12,15 +12,14 @@ const autos = [
 // Método de búsqueda
 function buscarAutos(busqueda) {
     const autosFiltrados = autos.filter(auto => {
-
-      return auto.marca.toLowerCase().includes(busqueda.toLowerCase()) || auto.modelo.toLowerCase().includes(busqueda.toLowerCase());
+        return auto.marca.toLowerCase().includes(busqueda.toLowerCase()) || auto.modelo.toLowerCase().includes(busqueda.toLowerCase());
     });
-  
-    return autosFiltrados;
-  }
 
-document.getElementById('btn-buscar').addEventListener('click', function() {
-    const busqueda = document.getElementById('barra-busqueda').value;
+    return autosFiltrados;
+}
+
+document.getElementById("btn-buscar").addEventListener("click", () => {
+    const busqueda = document.getElementById("barra-busqueda").value;
 
     const resultadoBusqueda = buscarAutos(busqueda);
 
