@@ -1,0 +1,14 @@
+* {
+  padding: 0;
+  bottom: 0;
+  box-sizing: border-box;
+  }
+  
+  .barra-busqueda {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    .btn {
+      background-color: rgb(97, 96, 96);
+    }
+  }

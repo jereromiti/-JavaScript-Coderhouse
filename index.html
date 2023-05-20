@@ -4,9 +4,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JavaScript App</title>
+    <!--ESTILOS BOOSTRAP-->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <!--ESTILOS PROPIOS-->
+    <link rel="stylesheet" href="./css/style.css">
+    <title>JavaScript</title>
 </head>
-<body>
+<body class="bg-secondary">
+    <header class="bg-dark w-100">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container-fluid header__nav__row">
+              <a class="navbar-brand fs-1 fw-bold nav__logo" href="#">StarCars</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              <!-- </button>
+              <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link me-5 px-1 py-1" id="nav__link" href="#">Inicio</a>
+                  </li>
+                </ul>
+              </div> -->
+            </div>
+          </nav>
+    </header>
+    <main class="container">
+        <div class="barra-busqueda my-5">
+            <input type="text" id="barra-busqueda" placeholder="Buscar por marca o modelo">
+            <button type="button" class="btn btn-outline-warning" id="btn-buscar">Buscar</button>
+            <div id="resultado-busqueda" class="bg-dark text-warning"></div>
+        </div>
+    </main>
+    <script src="./js/bootstrap.bundle.min.js"></script>
     <script src="./js/main.js"></script>
 </body>
 </html>

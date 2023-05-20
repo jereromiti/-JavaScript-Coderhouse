@@ -1,36 +1,39 @@
-// Aplicacion que resuelve salario segun valor hora, jornada, dias trabajados, e impuestos
+// Array de autos
+const autos = [
+    { marca: 'Chevrolet', modelo: 'Cruze RS', año: 2023, precio: 22500 },
+    { marca: 'Chevrolet', modelo: 'Joy', año: 2019, precio: 15000 },
+    { marca: 'Chevrolet', modelo: 'Tracker', año: 2021, precio: 27000 },
+    { marca: 'Toyota', modelo: 'Corolla', año: 2019, precio: 20000 },
+    { marca: 'Toyota', modelo: 'Hilux', año: 2023, precio: 35000 },
+    { marca: 'Toyota', modelo: 'Supra', año: 1998, precio: 120000 },
 
-// Funciones
-const suma = (a, b) => a + b;
-const resta = (a, b) => a - b;
-const multiplica = (a, b) => a * b;
-// const impuestos = x => x * 0.22;
-function impuestos(impEntero) {
-    let impDecimal = impEntero / 100;
-    return impDecimal;
-}
-function descuento(x, impDecimal) {
-    return (x * impDecimal);
-}
+]
 
-while(true) {
-    function calcularSalario() {
-        // Variables Input
-        let valorHora = parseFloat(prompt("Escribe el valor hora a calcular"));
-        let horasTrabajadas = parseInt(prompt("Escribe la cantidad de horas por jornada"));
-        let diasQuincena = parseInt(prompt("Escribe la cantidad de dias a calcular"));
-        let impEntero = parseFloat(prompt("Escribe el porcentaje total de impuestos"))
-        //
-        if(!isNaN(valorHora) && !isNaN(horasTrabajadas) && !isNaN(diasQuincena) && !isNaN(impEntero)){
-            let impDecimal = impuestos(impEntero)
-            let resultadoInicial = multiplica(multiplica(valorHora, horasTrabajadas), diasQuincena);
-            let descuentos = descuento(resultadoInicial, impDecimal);
-            let resultadoFinal = resta(resultadoInicial, descuentos);
-            alert(`El resultado final con ${impEntero}% de impuestos es $${resultadoFinal} pesos`)
-        }else{
-            alert("Los datos ingresados son incorrectos o estan incompletos.");
-        }
+// Método de búsqueda
+function buscarAutos(busqueda) {
+    const autosFiltrados = autos.filter(auto => {
+
+      return auto.marca.toLowerCase().includes(busqueda.toLowerCase()) || auto.modelo.toLowerCase().includes(busqueda.toLowerCase());
+    });
+  
+    return autosFiltrados;
+  }
+
+document.getElementById('btn-buscar').addEventListener('click', function() {
+    const busqueda = document.getElementById('barra-busqueda').value;
+
+    const resultadoBusqueda = buscarAutos(busqueda);
+
+    const divResultado = document.getElementById('resultado-busqueda');
+    divResultado.innerHTML = '';
+
+    if (resultadoBusqueda.length === 0) {
+        divResultado.innerHTML = 'No se encontraron resultados.';
+    } else {
+        resultadoBusqueda.forEach(auto => {
+        const autoInfo = document.createElement('p');
+        autoInfo.textContent = `${auto.marca} ${auto.modelo} - Año: ${auto.año} - Precio: $${auto.precio} Usd`;
+        divResultado.appendChild(autoInfo);
+        });
     }
-    
-    calcularSalario()
-}
+});
