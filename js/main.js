@@ -10,9 +10,9 @@ const autos = [
 ]
 
 // Método de búsqueda
-function buscarAutos(busqueda) {
+function buscarAutos(filtrado) {
     const autosFiltrados = autos.filter(auto => {
-        return auto.marca.toLowerCase().includes(busqueda.toLowerCase()) || auto.modelo.toLowerCase().includes(busqueda.toLowerCase());
+        return auto.marca.toLowerCase().includes(filtrado.toLowerCase()) || auto.modelo.toLowerCase().includes(filtrado.toLowerCase());
     });
 
     return autosFiltrados;
@@ -36,3 +36,23 @@ document.getElementById("btn-buscar").addEventListener("click", () => {
         });
     }
 });
+
+
+let userPrompt = prompt("Ingrese su nombre de usuario para acceder al sitio")
+let pwPrompt = prompt("Ingrese su contraseña")
+
+//guardar informacion
+sessionStorage.setItem("nombre", userPrompt);
+sessionStorage.setItem("contraseña", pwPrompt);
+
+// recuperar datos del storage
+let user = sessionStorage.getItem("nombre");
+let pw = sessionStorage.getItem("contraseña");
+
+if (user === "admin" && pw === "admin") {
+    alert(`Bienvenido administrador`)
+}   else if (!isNaN(user) || !isNaN(pw)){
+        alert(`Los datos ingresados estan incompletos`)
+    }   else if (user !== "admin" && pw !== "admin") {
+        alert(`No eres el administrador de este sitio`)
+        }
