@@ -14,7 +14,6 @@ function buscarAutos(filtrado) {
     const autosFiltrados = autos.filter(auto => {
         return auto.marca.toLowerCase().includes(filtrado.toLowerCase()) || auto.modelo.toLowerCase().includes(filtrado.toLowerCase());
     });
-
     return autosFiltrados;
 }
 
@@ -26,22 +25,20 @@ document.getElementById("btn-buscar").addEventListener("click", () => {
     const divResultado = document.getElementById('resultado-busqueda');
     divResultado.innerHTML = '';
 
-    if (resultadoBusqueda.length === 0) {
-        divResultado.innerHTML = 'No se encontraron resultados.';
-    } else {
-        resultadoBusqueda.forEach(auto => {
+    // Operador ternario
+    resul = resultadoBusqueda.length === 0 ? true : false
+    resul ? divResultado.innerHTML = 'No se encontraron resultados.' : resultadoBusqueda.forEach(auto => {
         const autoInfo = document.createElement('p');
         autoInfo.textContent = `${auto.marca} ${auto.modelo} - Año: ${auto.año} - Precio: $${auto.precio} Usd`;
         divResultado.appendChild(autoInfo);
         });
-    }
 });
 
 
 let userPrompt = prompt("Ingrese su nombre de usuario para acceder al sitio")
 let pwPrompt = prompt("Ingrese su contraseña")
 
-//guardar informacion
+// guardar informacion
 sessionStorage.setItem("nombre", userPrompt);
 sessionStorage.setItem("contraseña", pwPrompt);
 
@@ -49,10 +46,15 @@ sessionStorage.setItem("contraseña", pwPrompt);
 let user = sessionStorage.getItem("nombre");
 let pw = sessionStorage.getItem("contraseña");
 
-if (user === "admin" && pw === "admin") {
-    alert(`Bienvenido administrador`)
-}   else if (!isNaN(user) || !isNaN(pw)){
-        alert(`Los datos ingresados estan incompletos`)
-    }   else if (user !== "admin" && pw !== "admin") {
-        alert(`No eres el administrador de este sitio`)
-        }
+// Condicionalles If Else if Else
+// if (user === "admin" && pw === "admin") {
+//     alert(`Bienvenido administrador`)
+// }   else if (!isNaN(user) || !isNaN(pw)){
+//         alert(`Los datos ingresados estan incompletos`)
+//     }   else if (user !== "admin" && pw !== "admin") {
+//         alert(`No eres el administrador de este sitio`)
+//         }
+
+// Operador ternario
+let alerta = (user === "admin" && pw === "admin") ? true : false;
+alerta ? alert(`Bienvenido administrador`) : alert(`No eres el administrador de este sitio`);
