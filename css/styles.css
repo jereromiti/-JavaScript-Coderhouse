@@ -1,0 +1,52 @@
+.bg-color {
+    background-color: #373a3d;
+}
+
+.header__nav__row {
+  max-width: 78rem;
+  text-align: end;
+}
+
+.header__nav__row__ul {
+  justify-content: center;
+}
+
+#nav__link {
+  color: #ffffff;
+}
+
+.nav__link-login {
+  background-color: rgba(17, 159, 241, 0.562);
+  border-radius: 7px;
+  transition: all 0.25s;
+}
+.nav__link-login:hover {
+  background-color: rgba(17, 159, 241, 0.788);
+  
+}
+
+
+.form-control {
+  border-radius: 7px;
+  width: 40rem;
+}
+
+.btn-search {
+    background-color: #ffffff;
+    border-radius: 7px;
+    transition: 0.3s;
+}
+
+.btn-search:hover {
+    background-color: #198754;
+    border-color: #198754;
+    color: #ffffff;
+}
+
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}

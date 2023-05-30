@@ -1,0 +1,42 @@
+.body__form {
+  width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: rgba(43, 43, 43, 0.486); 
+}
+
+.h2 {
+  text-align: center;
+  color: #ffffff;
+}
+  
+.inputs {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+  
+.btn__submit {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+  
+.btn__submit:hover {
+  background-color: #45a049;
+}
+  
+p#message {
+  text-align: center;
+  border-radius: 15px;
+  color: #2ecf33;
+  margin-top: 10px;
+}

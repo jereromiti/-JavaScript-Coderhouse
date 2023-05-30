@@ -6,8 +6,7 @@ const autos = [
     { marca: 'Toyota', modelo: 'Corolla', año: 2019, precio: 20000 },
     { marca: 'Toyota', modelo: 'Hilux', año: 2023, precio: 35000 },
     { marca: 'Toyota', modelo: 'Supra', año: 1998, precio: 120000 },
-
-]
+];
 
 // Método de búsqueda
 function buscarAutos(filtrado) {
@@ -18,33 +17,44 @@ function buscarAutos(filtrado) {
 }
 
 document.getElementById("btn-buscar").addEventListener("click", () => {
-    const busqueda = document.getElementById("barra-busqueda").value;
+    const busqueda = document.getElementById("barra-busqueda").value.trim();
 
     const resultadoBusqueda = buscarAutos(busqueda);
 
-    const divResultado = document.getElementById('resultado-busqueda');
-    divResultado.innerHTML = '';
+    const resultadoHTML = resultadoBusqueda.map(generarCard).join('');
 
-    // Operador ternario
-    resul = resultadoBusqueda.length === 0 ? true : false
-    resul ? divResultado.innerHTML = 'No se encontraron resultados.' : resultadoBusqueda.forEach(auto => {
-        const autoInfo = document.createElement('p');
-        autoInfo.textContent = `${auto.marca} ${auto.modelo} - Año: ${auto.año} - Precio: $${auto.precio} Usd`;
-        divResultado.appendChild(autoInfo);
-        });
+    const divResultado = document.getElementById('resultado-busqueda');
+    divResultado.innerHTML = resultadoHTML;
+
+    if (resultadoBusqueda.length === 0) {
+        divResultado.innerHTML = '<h4 class="text-light">No se han encontrado resultados para tu búsqueda.</h4>';
+    }
 });
 
+function generarCard(auto) {
+    return `
+    <div class="card col-lg-4 col-md-6 col-sm-12 m-3" style="width: 18rem;">
+        <img src="./assets/img/rs.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">${auto.marca} ${auto.modelo} - Año: ${auto.año}</h5>
+            <p class="card-text">Precio: $${auto.precio} usd</p>
+            <a href="#" class="btn btn-primary">Mas info</a>
+        </div>
+    </div>
+  `;
+}
 
-let userPrompt = prompt("Ingrese su nombre de usuario para acceder al sitio")
-let pwPrompt = prompt("Ingrese su contraseña")
 
-// guardar informacion
-sessionStorage.setItem("nombre", userPrompt);
-sessionStorage.setItem("contraseña", pwPrompt);
+// let userPrompt = prompt("Ingrese su nombre de usuario para acceder al sitio")
+// let pwPrompt = prompt("Ingrese su contraseña")
 
-// recuperar datos del storage
-let user = sessionStorage.getItem("nombre");
-let pw = sessionStorage.getItem("contraseña");
+// // guardar informacion
+// sessionStorage.setItem("nombre", userPrompt);
+// sessionStorage.setItem("contraseña", pwPrompt);
+
+// // recuperar datos del storage
+// let user = sessionStorage.getItem("nombre");
+// let pw = sessionStorage.getItem("contraseña");
 
 // Condicionalles If Else if Else
 // if (user === "admin" && pw === "admin") {
@@ -56,5 +66,5 @@ let pw = sessionStorage.getItem("contraseña");
 //         }
 
 // Operador ternario
-let alerta = (user === "admin" && pw === "admin") ? true : false;
-alerta ? alert(`Bienvenido administrador`) : alert(`No eres el administrador de este sitio`);
+// let alerta = (user === "admin" && pw === "admin") ? true : false;
+// alerta ? alert(`Bienvenido administrador`) : alert(`No eres el administrador de este sitio`);
