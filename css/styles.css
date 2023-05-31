@@ -1,5 +1,5 @@
 .bg-color {
-    background-color: #373a3d;
+  background-color: #373a3d;
 }
 
 .header__nav__row {
@@ -22,9 +22,7 @@
 }
 .nav__link-login:hover {
   background-color: rgba(17, 159, 241, 0.788);
-  
 }
-
 
 .form-control {
   border-radius: 7px;
@@ -32,19 +30,19 @@
 }
 
 .btn-search {
-    background-color: #ffffff;
-    border-radius: 7px;
-    transition: 0.3s;
+  background-color: #ffffff;
+  border-radius: 7px;
+  transition: 0.3s;
 }
 
 .btn-search:hover {
-    background-color: #198754;
-    border-color: #198754;
-    color: #ffffff;
+  background-color: #198754;
+  border-color: #198754;
+  color: #ffffff;
 }
 
 .navbar-toggler {
-    border: none;
+  border: none;
 }
 
 .navbar-toggler:focus {

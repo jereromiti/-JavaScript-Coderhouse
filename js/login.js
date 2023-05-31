@@ -45,7 +45,7 @@ const userRegisterSession = (userName, UserPassword) => {
   sessionStorage.setItem("users", JSON.stringify(arregloUsuariosSession));
 };
 
-// Traigo elementos del DOM HTML
+// Elementos del DOM HTML
 
 const form = document.getElementById("form");
 const saveDataCheckbox = document.getElementById("saveData");
@@ -59,16 +59,16 @@ form.addEventListener("submit", (event) => {
 
   let inputs = event.target.children;
 
-   if (saveDataCheckbox.checked) {
-        // Guardar datos en localStorage
-        userRegisterLocal(inputs[0].value, inputs[1].value);
-      } else {
-        // Guardar datos en sessionStorage
-        userRegisterSession(inputs[0].value, inputs[1].value);
-      }
-      
-      document.getElementById("message").innerHTML = "Registro exitoso!";
-      form.reset();
+  if (saveDataCheckbox.checked) {
+    // Guardar datos en localStorage
+    userRegisterLocal(inputs[0].value, inputs[1].value);
+  } else {
+    // Guardar datos en sessionStorage
+    userRegisterSession(inputs[0].value, inputs[1].value);
+  }
+
+  document.getElementById("message").innerHTML = "Registro exitoso!";
+  form.reset();
 });
 
 // // LOG IN
