@@ -1,13 +1,18 @@
 // // SIGN IN
 
-// Funcion
+// DOM HTML
 
-// Guardar datos de nuevos usuarios en el localStorage
+const formRegistro = document.getElementById("form__signin");
+const formInicio = document.getElementById("form__login");
+const saveDataCheckbox = document.getElementById("saveData");
 
-const userRegisterLocal = (userName, UserPassword) => {
+//
+
+// Funcion que al llamarse, guarda los inputs ingresados en el localStorage
+
+const userRegisterLocal = (userName, userPassword) => {
   let jsonUsuariosLocal = localStorage.getItem("users");
   let arregloUsuariosLocal = [];
-  // let arregloUsuariosSession = [];
 
   if (jsonUsuariosLocal) {
     arregloUsuariosLocal = JSON.parse(jsonUsuariosLocal);
@@ -16,16 +21,14 @@ const userRegisterLocal = (userName, UserPassword) => {
   let usuariosLocal = {
     id: arregloUsuariosLocal.length + 1,
     name: userName,
-    password: UserPassword,
+    password: userPassword,
   };
 
   arregloUsuariosLocal.push(usuariosLocal);
   localStorage.setItem("users", JSON.stringify(arregloUsuariosLocal));
 };
 
-// Funcion
-
-// Guardar datos de nuevos usuarios en sessionStorage
+// Funcion que al llamarse, guarda los inputs ingresados en el sessionStorage
 
 const userRegisterSession = (userName, UserPassword) => {
   let jsonUsuariosSession = sessionStorage.getItem("users");
@@ -45,47 +48,54 @@ const userRegisterSession = (userName, UserPassword) => {
   sessionStorage.setItem("users", JSON.stringify(arregloUsuariosSession));
 };
 
-// Elementos del DOM HTML
+// Funcion que verifica el estado del input Checkbox, y segun su condicion llama a las funciones (userRegisterLocal[checkBoxOn] y userRegisterSession[checkBoxOff]).
 
-const form = document.getElementById("form");
-const saveDataCheckbox = document.getElementById("saveData");
-const username = document.getElementById("username").value;
-const password = document.getElementById("password").value;
-
-// Evento
-
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
+function register(event) {
+  event.preventDefault(); // Evita el envío del formulario por defecto
 
   let inputs = event.target.children;
 
   if (saveDataCheckbox.checked) {
-    // Guardar datos en localStorage
+    // Guarda datos en localStorage
     userRegisterLocal(inputs[0].value, inputs[1].value);
   } else {
-    // Guardar datos en sessionStorage
+    // Guarda datos en sessionStorage
     userRegisterSession(inputs[0].value, inputs[1].value);
   }
 
   document.getElementById("message").innerHTML = "Registro exitoso!";
-  form.reset();
-});
 
-// // LOG IN
+  formRegistro.reset();
+}
 
-// document.getElementById("Form").addEventListener("submit", function(login) {
-//   login.preventDefault(); // preventDefault() Evita el envío del formulario por defecto
+formRegistro.addEventListener("submit", register); // Llamando funcion
 
-//   let username = document.getElementById("username").value;
-//   let password = document.getElementById("password").value;
+// Funcion que valida
 
-//   // Lógica de validación de usuario/contraseña
+function login(event) {
+  event.preventDefault();
 
-//   if (username === "jere" && password === "123") {
-//     // Usuario/contraseña válidos => redirigir a X sitio
-//     window.location.href = "https://www.google.com/";
-//   } else {
-//     // Usuario/contraseña in válidos => mostrar mensaje de error
-//     document.getElementById("message").innerHTML = "Nombre de usuario o contraseña incorrectos.";
-//   }
-// });
+  let usernameLogin = document.getElementById("username").value;
+  let passwordLogin = document.getElementById("password").value;
+
+  let jsonUsuariosLocal = localStorage.getItem("users");
+  let arregloUsuariosLocal = [];
+
+  if (jsonUsuariosLocal) {
+    arregloUsuariosLocal = JSON.parse(jsonUsuariosLocal);
+  }
+
+  // Lógica de validación de user/password
+  let userFound = arregloUsuariosLocal.find(
+    (user) => user.name === usernameLogin && user.password === passwordLogin
+  );
+
+  if (userFound) {
+    window.location.href = "/";
+  } else {
+    document.getElementById("messageInvalid").innerHTML =
+      "El nombre de usuario o contraseña es incorrecto o no existe. Verifique los datos y vuelva a intentar.";
+  }
+}
+
+formInicio.addEventListener("submit", login); // Llamando funcion

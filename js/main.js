@@ -47,27 +47,3 @@ function generarCard(auto) {
     </div>
   `;
 }
-
-// let userPrompt = prompt("Ingrese su nombre de usuario para acceder al sitio")
-// let pwPrompt = prompt("Ingrese su contraseña")
-
-// // guardar informacion
-// sessionStorage.setItem("nombre", userPrompt);
-// sessionStorage.setItem("contraseña", pwPrompt);
-
-// // recuperar datos del storage
-// let user = sessionStorage.getItem("nombre");
-// let pw = sessionStorage.getItem("contraseña");
-
-// Condicionalles If Else if Else
-// if (user === "admin" && pw === "admin") {
-//     alert(`Bienvenido administrador`)
-// }   else if (!isNaN(user) || !isNaN(pw)){
-//         alert(`Los datos ingresados estan incompletos`)
-//     }   else if (user !== "admin" && pw !== "admin") {
-//         alert(`No eres el administrador de este sitio`)
-//         }
-
-// Operador ternario
-// let alerta = (user === "admin" && pw === "admin") ? true : false;
-// alerta ? alert(`Bienvenido administrador`) : alert(`No eres el administrador de este sitio`);
