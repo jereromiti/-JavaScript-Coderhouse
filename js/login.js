@@ -68,7 +68,8 @@ function register(event) {
   formRegistro.reset();
 }
 
-formRegistro.addEventListener("submit", register); // Llamando funcion
+// formRegistro.addEventListener("submit", register); // Llamando funcion
+formRegistro.onsubmit = register; // Segundo metodo
 
 // Funcion que valida
 
@@ -98,4 +99,5 @@ function login(event) {
   }
 }
 
-formInicio.addEventListener("submit", login); // Llamando funcion
+// formInicio.addEventListener("submit", login); // Llamando funcion
+formInicio.onsubmit = login; // Segundo metodo
