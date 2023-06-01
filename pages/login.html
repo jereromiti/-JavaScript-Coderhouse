@@ -41,9 +41,9 @@
                   >Inicio</a
                 >
               </li>
-              <li class="nav-item">
+              <li class="nav-item nav__link-login">
                 <a
-                  class="nav-link fw-bold p-2 nav__link-login"
+                  class="nav-link fw-bold p-2 "
                   id="nav__link"
                   aria-current="page"
                   href="#"
@@ -58,7 +58,7 @@
     <hr class="m-0 py-1 text-light" />
     <!--linea divisoria-->
     <main>
-      <div class="d-flex justify-content-center">
+      <div class="row justify-content-center">
         <div class="body__form login m-5">
           <h2 class="h2">Iniciar Sesión.</h2>
           <form id="form__login">
@@ -80,7 +80,7 @@
             <button class="btn__submit" type="submit">Iniciar sesión</button>
           </form>
           <p id="message"></p>
-          <p class="text-light" id="messageInvalid"></p>
+          <p class="text-light" id="message-invalid"></p>
         </div>
         <div class="body__form signin m-5">
           <h2 class="h2">Registro.</h2>
@@ -107,11 +107,11 @@
             <!-- buttons -->
             <button class="btn__submit" type="submit">Registrar</button>
           </form>
-          <p id="message"></p>
+          <p class="text-success mt-2" id="message-signin"></p>
         </div>
       </div>
     </main>
-    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
     <script src="../js/login.js"></script>
   </body>
 </html>

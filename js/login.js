@@ -63,7 +63,7 @@ function register(event) {
     userRegisterSession(inputs[0].value, inputs[1].value);
   }
 
-  document.getElementById("message").innerHTML = "Registro exitoso!";
+  document.getElementById("message-signin").innerHTML = "Registro exitoso!";
 
   formRegistro.reset();
 }
@@ -94,7 +94,7 @@ function login(event) {
   if (userFound) {
     window.location.href = "/";
   } else {
-    document.getElementById("messageInvalid").innerHTML =
+    document.getElementById("message-invalid").innerHTML =
       "El nombre de usuario o contraseña es incorrecto o no existe. Verifique los datos y vuelva a intentar.";
   }
 }

@@ -20,6 +20,7 @@
   border-radius: 7px;
   transition: all 0.25s;
 }
+
 .nav__link-login:hover {
   background-color: rgba(17, 159, 241, 0.788);
 }
@@ -30,7 +31,6 @@
 }
 
 .btn-search {
-  background-color: #ffffff;
   border-radius: 7px;
   transition: 0.3s;
 }
