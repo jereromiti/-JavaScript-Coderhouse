@@ -58,32 +58,57 @@
     <hr class="m-0 py-1 text-light" />
     <!--linea divisoria-->
     <main>
-      <div class="body__form">
-        <h2 class="h2">Iniciar Sesión.</h2>
-        <form id="form__login">
-          <input
-            class="inputs"
-            type="text"
-            id="username"
-            placeholder="Nombre de usuario"
-            required
-          />
-          <input
-            class="inputs"
-            type="password"
-            id="password"
-            placeholder="Contraseña"
-            required
-          />
-          <p class="text-light">
-            No te has registrado?
-            <a class="text-warning" href="./signin.html">Registrate aca.</a>
-          </p>
-          <!-- buttons -->
-          <button class="btn__submit" type="submit">Iniciar sesión</button>
-        </form>
-        <p id="message"></p>
-        <p class="text-light" id="messageInvalid"></p>
+      <div class="d-flex justify-content-center">
+        <div class="body__form login m-5">
+          <h2 class="h2">Iniciar Sesión.</h2>
+          <form id="form__login">
+            <input
+              class="inputs"
+              type="text"
+              id="username"
+              placeholder="Nombre de usuario"
+              required
+            />
+            <input
+              class="inputs"
+              type="password"
+              id="password"
+              placeholder="Contraseña"
+              required
+            />
+            <!-- buttons -->
+            <button class="btn__submit" type="submit">Iniciar sesión</button>
+          </form>
+          <p id="message"></p>
+          <p class="text-light" id="messageInvalid"></p>
+        </div>
+        <div class="body__form signin m-5">
+          <h2 class="h2">Registro.</h2>
+          <form id="form__signin">
+            <input
+              class="inputs"
+              type="text"
+              id="username"
+              placeholder="Nombre de usuario"
+              required
+            />
+            <input
+              class="inputs"
+              type="password"
+              id="password"
+              placeholder="Contraseña"
+              required
+            />
+            <!-- checkbox -->
+            <input type="checkbox" id="saveData" />
+            <label class="text-light small" for="saveData"
+              >Guardar datos en el navegador</label
+            >
+            <!-- buttons -->
+            <button class="btn__submit" type="submit">Registrar</button>
+          </form>
+          <p id="message"></p>
+        </div>
       </div>
     </main>
     <script src="../js/bootstrap.bundle.min.js"></script>
