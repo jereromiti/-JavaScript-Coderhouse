@@ -42,8 +42,18 @@ function generarCard(auto) {
         <div class="card-body">
             <h5 class="card-title">${auto.marca} ${auto.modelo} - Año: ${auto.año}</h5>
             <p class="card-text">Precio: $${auto.precio} usd</p>
-            <a href="#" class="btn btn-primary">Mas info</a>
+            <button href="#" class="btn btn-primary" id="btn-error">Mas info</button>
         </div>
     </div>
   `;
 }
+
+// const btnError = document.getElementById("btn-error");
+
+// btnError.addEventListener("click", () => {
+//   Swal.fire({
+//     icon: "error",
+//     title: "Oops...",
+//     text: "Something went wrong!",
+//   });
+// });
